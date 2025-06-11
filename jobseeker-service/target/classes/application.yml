@@ -1,0 +1,11 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: jobseeker-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Eureka/Eureka.iml" filepath="$PROJECT_DIR$/Eureka/Eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recruitment_system.iml" filepath="$PROJECT_DIR$/Recruitment_system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analytics-service/analytics-service.iml" filepath="$PROJECT_DIR$/analytics-service/analytics-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/book-service/book-service.iml" filepath="$PROJECT_DIR$/book-service/book-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/borrow-service/borrow-service.iml" filepath="$PROJECT_DIR$/borrow-service/borrow-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/company-service/company-service.iml" filepath="$PROJECT_DIR$/company-service/company-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jobseeker-service/jobseeker-service.iml" filepath="$PROJECT_DIR$/jobseeker-service/jobseeker-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruitment-service/recruitment-service.iml" filepath="$PROJECT_DIR$/recruitment-service/recruitment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resume-service/resume-service.iml" filepath="$PROJECT_DIR$/resume-service/resume-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+    </modules>
+  </component>
+</project>

@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/borrow-service/borrow-service.iml" filepath="$PROJECT_DIR$/borrow-service/borrow-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/company-service/company-service.iml" filepath="$PROJECT_DIR$/company-service/company-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-service/gateway-service.iml" filepath="$PROJECT_DIR$/gateway-service/gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jobseeker-service/jobseeker-service.iml" filepath="$PROJECT_DIR$/jobseeker-service/jobseeker-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/recruitment-service/recruitment-service.iml" filepath="$PROJECT_DIR$/recruitment-service/recruitment-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/resume-service/resume-service.iml" filepath="$PROJECT_DIR$/resume-service/resume-service.iml" />

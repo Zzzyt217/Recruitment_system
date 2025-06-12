@@ -6,17 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="recruitment-service" />
+        <module name="jobseeker-service" />
         <module name="eureka-server" />
         <module name="book-service" />
         <module name="company-service" />
         <module name="analytics-service" />
-        <module name="jobseeker-service" />
+        <module name="gateway-service" />
         <module name="borrow-service" />
         <module name="Eureka" />
         <module name="resume-service" />
         <module name="user-service" />
         <module name="auth-service" />
+        <module name="recruitment-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,6 +28,7 @@
       <module name="company-service" target="1.8" />
       <module name="Eureka" target="8" />
       <module name="eureka-server" target="1.8" />
+      <module name="gateway-service" target="1.8" />
       <module name="jobseeker-service" target="1.8" />
       <module name="recruitment-service" target="1.8" />
       <module name="Recruitment_system" target="1.8" />
@@ -44,6 +46,7 @@
       <module name="borrow-service" options="-parameters" />
       <module name="company-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="jobseeker-service" options="-parameters" />
       <module name="recruitment-service" options="-parameters" />
       <module name="resume-service" options="-parameters" />

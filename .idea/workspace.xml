@@ -11,6 +11,13 @@
       <change afterPath="$PROJECT_DIR$/../springcloud/mvnw" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../springcloud/mvnw.cmd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../springcloud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/auth-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/auth-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +35,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -68,6 +75,14 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Recruitment_system\auth-service\src\main\resources\templates" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.test.Pojo" />
+      <recent name="com.test.Mapper" />
+      <recent name="com.test.Controller" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\SpringCloudStudy\analytics-service\src\main\java\com" />
     </key>
@@ -79,7 +94,15 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ResumeServiceApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
+    <configuration name="All in gateway-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gateway-service" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AnalyticsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="analytics-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.AnalyticsServiceApplication" />
@@ -117,6 +140,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JobseekerServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="jobseeker-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.JobseekerServiceApplication" />
@@ -142,17 +172,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.All in gateway-service" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.JobseekerServiceApplication" />
       <item itemvalue="Spring Boot.CompanyServiceApplication" />
       <item itemvalue="Spring Boot.ResumeServiceApplication" />
       <item itemvalue="Spring Boot.RecruitmentServiceApplication" />
       <item itemvalue="Spring Boot.AnalyticsServiceApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.EurekaServerApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="JUnit.All in gateway-service" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +203,11 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -192,6 +230,9 @@
       <workItem from="1749473635904" duration="2758000" />
       <workItem from="1749610154802" duration="21000" />
       <workItem from="1749632926463" duration="1774000" />
+      <workItem from="1749690530364" duration="11901000" />
+      <workItem from="1749704481417" duration="120000" />
+      <workItem from="1749709210313" duration="7185000" />
     </task>
     <servers />
   </component>
@@ -211,46 +252,46 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="223" y="63" width="1088" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1749633628974" />
-    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1749610172963">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1749701301056">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1749610172963" />
-    <state width="1024" height="258" key="GridCell.Tab.0.bottom" timestamp="1749634945165">
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1749701301056" />
+    <state width="1024" height="219" key="GridCell.Tab.0.bottom" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1749634945165" />
-    <state width="1024" height="258" key="GridCell.Tab.0.center" timestamp="1749634945165">
+    <state width="1024" height="219" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.0.center" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1749634945163" />
-    <state width="1024" height="258" key="GridCell.Tab.0.left" timestamp="1749634945163">
+    <state width="1024" height="219" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.0.left" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1749634945163" />
-    <state width="1024" height="258" key="GridCell.Tab.0.right" timestamp="1749634945165">
+    <state width="1024" height="219" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.0.right" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1749634945165" />
-    <state width="1024" height="258" key="GridCell.Tab.1.bottom" timestamp="1749634945165">
+    <state width="1024" height="219" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.1.bottom" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1749634945165" />
-    <state width="1024" height="258" key="GridCell.Tab.1.center" timestamp="1749634945165">
+    <state width="1024" height="219" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.1.center" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1749634945165" />
-    <state width="1024" height="258" key="GridCell.Tab.1.left" timestamp="1749634945165">
+    <state width="1024" height="219" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.1.left" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1749634945165" />
-    <state width="1024" height="258" key="GridCell.Tab.1.right" timestamp="1749634945165">
+    <state width="1024" height="219" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state width="1024" height="219" key="GridCell.Tab.1.right" timestamp="1749720244171">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1024" height="258" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1749634945165" />
-    <state x="356" y="183" key="new project wizard" timestamp="1749474279007">
+    <state width="1024" height="219" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1749720244171" />
+    <state x="356" y="183" key="new project wizard" timestamp="1749696719790">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="356" y="183" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1749474279007" />
+    <state x="356" y="183" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1749696719790" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1749472917822">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

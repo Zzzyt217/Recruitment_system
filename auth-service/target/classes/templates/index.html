@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页 - SupRecruitment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            margin-right: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo-icon i {
+            font-size: 35px; /* 你可以根据需要调整这个值 */
+        }
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-menu a:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+        
+        .user-menu a i {
+            margin-right: 6px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        
+        .welcome-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(76, 201, 240, 0.1));
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+            z-index: 0;
+        }
+        
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-card p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .stat-icon.blue {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .stat-icon.green {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success-color);
+        }
+        
+        .stat-icon.orange {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--warning-color);
+        }
+        
+        .stat-icon.red {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--danger-color);
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+        
+        .card h2 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .card-action {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        .card-action:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--text-light);
+            font-size: 14px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-menu span {
+                display: none;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="icon ion-ribbon-b"></i>
+            </div>
+            <div class="logo-text">SupRecruitment</div>
+        </div>
+        <div class="user-menu">
+            <div class="user-avatar" th:if="${session.user != null}" th:text="${session.user.username.substring(0,1).toUpperCase()}">U</div>
+            <span th:text="${session.user != null ? session.user.username : '游客'}">用户名</span>
+            <a href="/auth/register" th:if="${session.user == null}"><i class="fas fa-user-plus"></i> 注册</a>
+            <a href="/auth/login" th:if="${session.user == null}"><i class="fas fa-sign-in-alt"></i> 登录</a>
+            <a href="javascript:void(0);" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> 退出登录</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="welcome-card animate">
+            <div class="welcome-content">
+                <h1 id="welcome">欢迎！</h1>
+                <p>这是您的个人中心，您可以在这里管理您的用户和查看信息。今天是 <span id="current-date"></span></p>
+                <a href="#" class="card-action">开始探索 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-card animate delay-1">
+                <div class="stat-icon blue">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-value">254</div>
+                <div class="stat-label">活跃用户</div>
+            </div>
+            <div class="stat-card animate delay-2">
+                <div class="stat-icon green">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-value">95%</div>
+                <div class="stat-label">完成率</div>
+            </div>
+            <div class="stat-card animate delay-3">
+                <div class="stat-icon orange">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">新通知</div>
+            </div>
+            <div class="stat-card animate delay-4">
+                <div class="stat-icon red">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stat-value">99+</div>
+                <div class="stat-label">好评</div>
+            </div>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card animate delay-1">
+                <i class="fas fa-user-circle card-icon"></i>
+                <h2><i class="fas fa-user"></i> 个人信息</h2>
+                <p>查看和编辑您的个人资料信息，包括联系方式和偏好设置。</p>
+                <a href="#" class="card-action">管理资料</a>
+            </div>
+            <div class="card animate delay-2">
+                <i class="fas fa-shield-alt card-icon"></i>
+                <h2><i class="fas fa-lock"></i> 安全设置</h2>
+                <p>管理您的密码、双因素认证和其他安全选项，保障账户安全。</p>
+                <a href="#" class="card-action">更新设置</a>
+            </div>
+            <div class="card animate delay-3">
+                <i class="fas fa-bell card-icon"></i>
+                <h2><i class="fas fa-bell"></i> 通知中心</h2>
+                <p>查看您的最新通知、消息和系统更新提醒，保持信息同步。</p>
+                <a href="#" class="card-action">查看通知</a>
+            </div>
+            <div class="card animate delay-4">
+                <i class="fas fa-chart-bar card-icon"></i>
+                <h2><i class="fas fa-chart-line"></i> 数据分析</h2>
+                <p>查看您的使用统计数据、趋势分析和个性化报告。</p>
+                <a href="#" class="card-action">查看报告</a>
+            </div>
+            <div class="card animate delay-1">
+                <i class="fas fa-cog card-icon"></i>
+                <h2><i class="fas fa-cog"></i> 系统设置</h2>
+                <p>自定义您的系统偏好、主题设置和通知选项。</p>
+                <a href="#" class="card-action">修改设置</a>
+            </div>
+            <div class="card animate delay-2">
+                <i class="fas fa-question-circle card-icon"></i>
+                <h2><i class="fas fa-question-circle"></i> 帮助中心</h2>
+                <p>获取帮助文档、常见问题解答和联系客服支持。</p>
+                <a href="#" class="card-action">获取帮助</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 SupRecruitment. 保留所有权利。</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // 显示当前日期
+        const dateElement = document.getElementById('current-date');
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        dateElement.textContent = new Date().toLocaleDateString('zh-CN', options);
+        
+        // 添加卡片悬停效果
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.08)';
+            });
+        });
+
+        // 使用JWT获取用户信息
+        const token = localStorage.getItem('token');
+        console.log('当前token:', token ? token.substring(0, 20) + '...' : 'null');
+        
+        // 显示JWT详细信息
+        if (token) {
+            console.log('==== JWT 详细信息 ====');
+            console.log('完整Token:', token);
+            
+            try {
+                // 解析JWT
+                const parts = token.split('.');
+                if (parts.length === 3) {
+                    // 处理Base64URL编码
+                    const base64Url = parts[1];
+                    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+                    
+                    const payload = JSON.parse(jsonPayload);
+                    console.log('JWT Payload 解析结果:');
+                    console.log('用户名:', payload.sub);
+                    console.log('角色:', payload.role);
+                    console.log('用户ID:', payload.id);
+                }
+            } catch (e) {
+                console.error('JWT 解析失败:', e);
+            }
+            
+            console.log('正在请求用户信息...');
+            axios.get('/auth/api/user-info', {
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => {
+                console.log('用户信息响应:', response.data);
+                if (response.data.success) {
+                    // 更新欢迎信息
+                    document.getElementById('welcome').innerText = '欢迎，' + response.data.username + '！';
+                    
+                    // 更新用户头像
+                    const userAvatars = document.querySelectorAll('.user-avatar');
+                    if (userAvatars.length > 0) {
+                        userAvatars.forEach(avatar => {
+                            avatar.textContent = response.data.username.substring(0,1).toUpperCase();
+                            avatar.style.display = 'flex';
+                        });
+                    }
+                    
+                    // 更新用户名显示
+                    const usernameElements = document.querySelectorAll('.user-menu span');
+                    if (usernameElements.length > 0) {
+                        usernameElements.forEach(elem => {
+                            elem.textContent = response.data.username;
+                        });
+                    }
+                    
+                    // 根据角色显示不同内容
+                    if (response.data.role === '求职者') {
+                        // 可添加求职者特定的UI逻辑
+                    } else if (response.data.role === '企业') {
+                        // 可添加企业特定的UI逻辑
+                    }
+                    
+                    // 显示登出链接，隐藏登录和注册链接
+                    const loginLinks = document.querySelectorAll('a[href="/login"], a[href="/auth/login"]');
+                    const registerLinks = document.querySelectorAll('a[href="/register"], a[href="/auth/register"]');
+                    const logoutBtn = document.getElementById('logoutBtn');
+                    
+                    loginLinks.forEach(link => { link.style.display = 'none'; });
+                    registerLinks.forEach(link => { link.style.display = 'none'; });
+                    if (logoutBtn) logoutBtn.style.display = 'inline-flex';
+                    
+                } else {
+                    showGuestUI();
+                }
+            })
+            .catch(error => {
+                showGuestUI();
+            });
+        } else {
+            showGuestUI();
+        }
+        
+        function showGuestUI() {
+            document.getElementById('welcome').innerText = '欢迎，游客！';
+            
+            // 隐藏用户头像
+            const userAvatars = document.querySelectorAll('.user-avatar');
+            userAvatars.forEach(avatar => { avatar.style.display = 'none'; });
+            
+            // 显示"游客"文本
+            const usernameElements = document.querySelectorAll('.user-menu span');
+            usernameElements.forEach(elem => { elem.textContent = '游客'; });
+            
+            // 显示登录和注册链接，隐藏登出链接
+            const loginLinks = document.querySelectorAll('a[href="/login"], a[href="/auth/login"]');
+            const registerLinks = document.querySelectorAll('a[href="/register"], a[href="/auth/register"]');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            loginLinks.forEach(link => { link.style.display = 'inline-flex'; });
+            registerLinks.forEach(link => { link.style.display = 'inline-flex'; });
+            if (logoutBtn) logoutBtn.style.display = 'none';
+        }
+        
+        // 处理退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            // 清除本地存储的token
+            localStorage.removeItem('token');
+            
+            // 调用后端API通知服务器用户已退出
+            axios.post('/auth/api/logout')
+                .finally(() => {
+                    // 跳转到登录页
+                    window.location.href = '/auth/login';
+                });
+        });
+    </script>
+</body>
+</html> 

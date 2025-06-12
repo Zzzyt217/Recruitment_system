@@ -11,6 +11,7 @@
         <module>resume-service</module>
         <module>recruitment-service</module>
         <module>analytics-service</module>
+        <module>gateway-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

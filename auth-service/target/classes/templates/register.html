@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .verification-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .verification-group input {
+            flex: 1;
+        }
+        
+        .verification-group button {
+            background-color: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0 15px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .btn-register {
+            background-color: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 0;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .btn-register:hover {
+            background-color: #0c7cd5;
+        }
+        
+        .password-input {
+            position: relative;
+        }
+        
+        .password-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+    </style>
+    <!-- 引入axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 7h-9"></path>
+                    <path d="M14 17H5"></path>
+                    <circle cx="17" cy="17" r="3"></circle>
+                    <circle cx="7" cy="7" r="3"></circle>
+                </svg>
+            </div>
+            <div class="logo-text">SupRecruitment</div>
+        </div>
+        
+        <h1>你好，欢迎！</h1>
+        <p>欢迎注册我们的平台</p>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="用户名" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="请输入您的邮箱" required>
+            </div>
+            
+            <div class="form-group verification-group">
+                <input type="text" id="verificationCode" name="verificationCode" placeholder="请输入验证码" required>
+                <button type="button" id="getCodeBtn" onclick="getCode()">获取验证码</button>
+            </div>
+            
+            <div class="form-group password-input">
+                <input type="password" id="password" name="password" placeholder="请输入密码" required>
+            </div>
+            
+            <div class="form-group">
+                <label>身份：</label>
+                <input type="radio" id="role-jobseeker" name="role" value="求职者" required> <label for="role-jobseeker">求职者</label>
+                <input type="radio" id="role-company" name="role" value="企业" required> <label for="role-company">企业</label>
+            </div>
+            
+            <button type="submit" class="btn-register">注册</button>
+        </form>
+    </div>
+
+    <script>
+        // 获取验证码
+        function getCode() {
+            const email = document.getElementById('email').value;
+            if (!email) {
+                alert('请输入邮箱');
+                return;
+            }
+            
+            const codeBtn = document.getElementById('getCodeBtn');
+            codeBtn.disabled = true;
+            
+            const params = new URLSearchParams();
+            params.append('email', email);
+            
+            axios.post('/auth/code', params)
+                .then(response => {
+                    const data = response.data;
+                    if (data.success) {
+                        alert(data.message);
+                        let countdown = 60;
+                        const timer = setInterval(() => {
+                            countdown--;
+                            codeBtn.textContent = `${countdown}s`;
+                            if (countdown <= 0) {
+                                clearInterval(timer);
+                                codeBtn.disabled = false;
+                                codeBtn.textContent = '获取验证码';
+                            }
+                        }, 1000);
+                    } else {
+                        alert(data.message);
+                        codeBtn.disabled = false;
+                    }
+                })
+                .catch(() => {
+                    alert('发送失败，请稍后再试');
+                    codeBtn.disabled = false;
+                });
+        }
+
+        // 表单提交
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const verificationCode = document.getElementById('verificationCode').value;
+            const password = document.getElementById('password').value;
+            const role = document.querySelector('input[name="role"]:checked').value;
+            
+            const params = new URLSearchParams();
+            params.append('username', username);
+            params.append('email', email);
+            params.append('verificationCode', verificationCode);
+            params.append('password', password);
+            params.append('role', role);
+            
+            axios.post('/auth/register', params)
+                .then(response => {
+                    const data = response.data;
+                    alert(data.message);
+                    if (data.success) {
+                        window.location.href = '/auth/login';
+                    }
+                });
+        });
+    </script>
+</body>
+</html> 
